@@ -24,6 +24,7 @@ root partition: LABEL=BOOT into /etc/fstab line ```/dev/mmcblk0p1 -> LABEL=BOOT`
 # <file system> <dir> <type> <options> <dump> <pass>
 LABEL=BOOT  /boot   vfat    defaults        0       0
 ```
+***Dont Resize the ROOT partition it will be automaticaly resized in the firts boot!!***
 this way the system always searches the drive with labeled BOOT & ROOT partitions with out problem and boot even if you add multiple usb disks.
 2. plug in your usb drive to your RaspberryPi
 3. turn on
