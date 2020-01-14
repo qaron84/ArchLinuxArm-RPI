@@ -11,13 +11,19 @@ wget https://osdn.net/projects/manjaro-arm/storage/rpi2/minimal/18.12.1/Manjaro-
 
 2. mount the drive into your computer and add Label tags for Boot and Root partitions
 
-boot partition: LABEL=ROOT into cmdline.txt ```root=/dev/mmcblk0p2 -> root=LABEL=ROOT```
-cmdline.txt:
+boot partition: LABEL=ROOT into cmdline.txt ```root=/dev/mmcblk0p2 -> root=LABEL=ROOT```, /boot/cmdline.txt:
 ```
 root=LABEL=ROOT rw rootwait rootdelay=60 console=ttyAMA0,115200 console=tty1 selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 kgdboc=ttyAMA0,115200 elevator=noop audit=0
 ```
 
-root partition: LABEL=BOOT into /etc/fstab line ```/dev/mmcblk0p1 -> LABEL=BOOT```
+root partition: LABEL=BOOT into /etc/fstab line ```/dev/mmcblk0p1 -> LABEL=BOOT```, /etc/fstab:
+```
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+LABEL=BOOT  /boot   vfat    defaults        0       0
+```
 this way the system always searches the drive with labeled BOOT & ROOT partitions with out problem and boot even if you add multiple usb disks.
 2. plug in your usb drive to your RaspberryPi
 3. turn on
