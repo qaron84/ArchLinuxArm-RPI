@@ -1,5 +1,8 @@
 ## ManjaroArm > ArchLinuxArm for your RPI
 
+## https://archlinuxarm.org/forum/viewtopic.php?f=60&t=13821
+## https://github.com/raspberrypi/linux/issues/3087
+## to prevent these bugs 
 1. download the latest manjaro image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
 2. mount the drive into your computer and add Label tags for Boot and Root partitions
 
