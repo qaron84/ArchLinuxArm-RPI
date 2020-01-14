@@ -1,1 +1,1 @@
-# ArchLinuxArm-RPI
+# ArchLinuxArm-RPI2
