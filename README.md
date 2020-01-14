@@ -6,7 +6,8 @@ https://github.com/raspberrypi/linux/issues/3087
 1. download the latest manjaro image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
 
 ```
-wget https://osdn.net/projects/manjaro-arm/storage/rpi2/minimal/18.12.1/Manjaro-ARM-minimal-rpi2-18.12.1.img.xz```
+wget https://osdn.net/projects/manjaro-arm/storage/rpi2/minimal/18.12.1/Manjaro-ARM-minimal-rpi2-18.12.1.img.xz
+```
 
 2. mount the drive into your computer and add Label tags for Boot and Root partitions
 
