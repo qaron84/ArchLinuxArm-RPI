@@ -46,7 +46,7 @@ systemctl start systemd-timesynced
 everytime RaspberryPi boots, given internet access, it will always sync hardware clock...
 
 ### 5. System Update
-replace contents of `/etc/pacman.conf` with:
+**5.A replace contents of `/etc/pacman.conf` with:**
 ```
 #
 # /etc/pacman.conf
@@ -64,9 +64,8 @@ replace contents of `/etc/pacman.conf` with:
 #CacheDir    = /var/cache/pacman/pkg/
 #LogFile     = /var/log/pacman.log
 #GPGDir      = /etc/pacman.d/gnupg/
-HoldPkg      = pacman glibc manjaro-system
+HoldPkg      = pacman glibc
 # If upgrades are available for these packages they will be asked for first
-SyncFirst    = manjaro-system manjaro-keyring manjaro-arm-keyring
 #XferCommand = /usr/bin/curl -C - -f %u > %o
 #XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
 #CleanMethod = KeepInstalled
@@ -74,7 +73,7 @@ SyncFirst    = manjaro-system manjaro-keyring manjaro-arm-keyring
 Architecture = armv7h
 
 # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
-#IgnorePkg   =
+IgnorePkg   = firmware-raspberrypi raspberrypi-bootloader raspberrypi-firmware
 #IgnoreGroup =
 
 #NoUpgrade   =
@@ -82,7 +81,7 @@ Architecture = armv7h
 
 # Misc options
 #UseSyslog
-#Color
+Color
 #TotalDownload
 CheckSpace
 VerbosePkgLists
@@ -125,6 +124,11 @@ Include = /etc/pacman.d/mirrorlist
 [community]
 Include = /etc/pacman.d/mirrorlist
 
+[alarm]
+Include = /etc/pacman.d/mirrorlist
+
+[aur]
+Include = /etc/pacman.d/mirrorlist
 # An example of a custom package repository.  See the pacman manpage for
 # tips on creating your own repositories.
 #[custom]
@@ -132,13 +136,13 @@ Include = /etc/pacman.d/mirrorlist
 #Server = file:///home/custompkgs
 ```
 
-replace contents of `/etc/pacman.d/mirrorlist` with:
+**5.B replace contents of `/etc/pacman.d/mirrorlist` with:**
 ```
 ## Geo-IP based mirror selection and load balancing
 Server = http://mirror.archlinuxarm.org/$arch/$repo
 ```
-remove the file `/etc/lsb-release` with: `rm /etc/lsb-release`
-
+**5.C remove the file `/etc/lsb-release` with:**
+`rm /etc/lsb-release`
 ```
 pacman-key --init
 pacman-key --populate archlinuxarm
