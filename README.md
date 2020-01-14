@@ -1,15 +1,15 @@
-### ManjaroArm > ArchLinuxArm for your RPI
+## ManjaroArm > ArchLinuxArm for your RPI
 this procedure counters the bug Kernel Panic on boot via latest kernel on Raspberry Pi 3+ and below.
 https://archlinuxarm.org/forum/viewtopic.php?f=60&t=13821
 https://github.com/raspberrypi/linux/issues/3087
 
-## 1. download the latest manjaro image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
+### 1. download the latest manjaro image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
 
 ```
 wget https://osdn.net/projects/manjaro-arm/storage/rpi2/minimal/18.12.1/Manjaro-ARM-minimal-rpi2-18.12.1.img.xz
 ```
 
-## 2. mount the drive into your computer and add Label tags for Boot and Root partitions
+### 2. mount the drive into your computer and add Label tags for Boot and Root partitions
 
 boot partition: LABEL=ROOT into cmdline.txt ```root=/dev/mmcblk0p2 -> root=LABEL=ROOT```, /boot/cmdline.txt:
 ```
@@ -28,11 +28,13 @@ LABEL=BOOT  /boot   vfat    defaults        0       0
 
 this way the system always searches the drive with labeled BOOT & ROOT partitions with out problem and boot even if you add multiple usb disks.
 
-## 3. Put the SD Card into your pi, power it on and login with manjaro/manjaro
+### 3. Put the SD Card into your pi, power it on and login with manjaro/manjaro
+First of all get root:
 ```
 sudo arp-scan -l
 ssh manjaro@ip_address -p 22
 su
-
 ```
+Password for root: `root`.
+
 3. turn on
