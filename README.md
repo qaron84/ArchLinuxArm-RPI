@@ -152,7 +152,7 @@ pacman -Syu --noconfirm
 ```
 **5.E install optional software**
 ```
-pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo
+pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors
 ```
 ### 6. Users & Hostname
 ```
@@ -181,3 +181,4 @@ echo 'i2c-bcm2708' >> /etc/modules-load.d/i2c.conf
 #give i2c interface non-root permissions
 echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 ```
+reboot, re-login and check: `i2cdetect -y 0` or `i2cdetect -y 1`
