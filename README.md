@@ -184,24 +184,4 @@ echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 reboot, re-login and check: `i2cdetect -y 0` or `i2cdetect -y 1`
 
 finally if you install neofetch:
-[pi@pi ~]$ neofetch
-                   -`                    pi@pi 
-                  .o+`                   ----- 
-                 `ooo/                   OS: Arch Linux armv7l 
-                `+oooo:                  Host: Raspberry Pi 2 Model B Rev 1.1 
-               `+oooooo:                 Kernel: 4.19.93-2-ARCH 
-               -+oooooo+:                Uptime: 22 mins 
-             `/:-:++oooo+:               Packages: 242 (pacman) 
-            `/++++/+++++++:              Shell: bash 5.0.11 
-           `/++++++++++++++:             Terminal: /dev/pts/0 
-          `/+++ooooooooooooo/`           CPU: BCM2835 (4) @ 900MHz 
-         ./ooosssso++osssssso+`          Memory: 52MiB / 971MiB 
-        .oossssso-````/ossssss+`
-       -osssssso.      :ssssssso.                                
-      :osssssss/        osssso+++.                               
-     /ossssssss/        +ssssooo/-
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
-
+<img src="home.jpg">
