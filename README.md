@@ -143,8 +143,41 @@ Server = http://mirror.archlinuxarm.org/$arch/$repo
 ```
 **5.C remove the file `/etc/lsb-release` with:**
 `rm /etc/lsb-release`
+
+**5.D update the system**
 ```
 pacman-key --init
 pacman-key --populate archlinuxarm
-pacman -Syu
+pacman -Syu --noconfirm
+```
+**5.E install optional software**
+```
+pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo
+```
+### 6. Users & Hostname
+```
+hostnamectl set-hostname your-hostname
+sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
+useradd -d /home/yourUserName -m -G wheel -s /bin/bash yourUserName
+passwd yourUserName
+sed -i 's/manjaro/yourUserName/' /etc/group
+sed -i 's/yourUserName,yourUserName/yourUserName/' /etc/group
+```
+reboot system and relogin
+### 7. Aur Helper - Trizen (optional)
+```
+cd /tmp
+git clone https://aur.archlinux.org/trizen.git
+cd trizen
+makepkg -si
+```
+### 8. i2c interface
+```
+#enable i2c interface on kernel
+echo 'dtparam=i2c_arm=on' >> /boot/config.txt
+#enable modules on boot
+echo 'i2c-dev' >> /etc/modules-load.d/i2c.conf
+echo 'i2c-bcm2708' >> /etc/modules-load.d/i2c.conf
+#give i2c interface non-root permissions
+echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 ```
