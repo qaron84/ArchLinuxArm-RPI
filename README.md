@@ -1,7 +1,9 @@
 ## ManjaroArm > ArchLinuxArm for your RPI
-this procedure counters the bug Kernel Panic on boot via latest kernel on Raspberry Pi 3+ and below.
+This procedure counters the bug Kernel Panic on boot via latest kernel on Raspberry Pi 3+ and below.
 https://archlinuxarm.org/forum/viewtopic.php?f=60&t=13821
 https://github.com/raspberrypi/linux/issues/3087
+The solution is real simple actualy, you use an older image with a healthy bootloader and you freeze some packages.
+I found out that if you freeze these: `firmware-raspberrypi raspberrypi-bootloader raspberrypi-firmware` you're Golden!!
 
 ### 1. download the latest manjaro image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
 
