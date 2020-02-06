@@ -42,8 +42,8 @@ Password for root: `root`.
 ### 4. Set timezone & enable systemd-timesyncd Service
 ```
 ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
-systemctl enable systemd-timesynced
-systemctl start systemd-timesynced
+systemctl enable systemd-timesyncd
+systemctl start systemd-timesyncd
 ```
 everytime RaspberryPi boots, given internet access, it will always sync hardware clock...
 
