@@ -156,14 +156,14 @@ pacman -Syu --noconfirm
 ```
 pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors
 ```
-### 6. Users & Hostname
+### 6. Users & Hostname pi
 ```
-hostnamectl set-hostname your-hostname
+hostnamectl set-hostname pi
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
-useradd -d /home/yourUserName -m -G wheel -s /bin/bash yourUserName
-passwd yourUserName
-sed -i 's/manjaro/yourUserName/' /etc/group
-sed -i 's/yourUserName,yourUserName/yourUserName/' /etc/group
+useradd -d /home/pi -m -G wheel -s /bin/bash pi
+passwd pi
+sed -i 's/manjaro/pi/' /etc/group
+sed -i 's/pi,pi/pi/' /etc/group
 ```
 reboot system and relogin
 ### 7. Aur Helper - Trizen (optional)
