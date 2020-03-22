@@ -144,12 +144,14 @@ Include = /etc/pacman.d/mirrorlist
 Server = http://mirror.archlinuxarm.org/$arch/$repo
 ```
 **5.C remove the file `/etc/lsb-release` with:**
-```rm /etc/lsb-release```
+```
+rm /etc/lsb-release
+```
 
 **5.D update the system**
 ```
-pacman-key --init --noconfirm
-pacman-key --populate archlinuxarm --noconfirm
+pacman-key --init
+pacman-key --populate archlinuxarm
 pacman -Syu --noconfirm
 ```
 **5.E install optional software**
