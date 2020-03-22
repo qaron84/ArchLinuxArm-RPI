@@ -180,9 +180,9 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 hostnamectl set-hostname pi
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
 useradd -d /home/pi -m -G wheel -s /bin/bash pi
-passwd pi
 sed -i 's/manjaro/pi/' /etc/group
 sed -i 's/pi,pi/pi/' /etc/group
+passwd pi
 ```
 reboot system and relogin
 ### 7. Aur Helper - Trizen (optional)
