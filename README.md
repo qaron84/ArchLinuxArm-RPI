@@ -106,6 +106,6 @@ echo 'i2c-bcm2708' >> /etc/modules-load.d/i2c.conf
 #give i2c interface non-root permissions
 echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 reboot, re-login and check: `i2cdetect -y 0` or `i2cdetect -y 1`
-
+```
 finally if you install neofetch:
 <img src="home.jpg">
