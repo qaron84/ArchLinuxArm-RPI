@@ -71,11 +71,21 @@ pacman -Syu --noconfirm
 ```
 pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils --noconfirm
 ```
+**5.D install Mate-Desktop**
+```
+pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter --noconfirm
+systemctl enable lightdm.service
+groupadd -r autologin
+gpasswd -a pi autologin
+```
 ### 6. Users & Hostname pi
 ```
 hostnamectl set-hostname pi
-sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
 useradd -d /home/pi -m -G wheel -s /bin/bash pi
+sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
+sed -i 's/#autologin-user=/autologin-user=pi/' /etc/lightdm/lightdm.conf
+sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
+sed -i 's/#user-session=default/user-session=mate/' /etc/lightdm/lightdm.conf
 passwd pi
 ```
 reboot system and relogin
