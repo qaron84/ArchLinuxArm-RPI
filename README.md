@@ -71,7 +71,7 @@ pacman -Syu --noconfirm
 ```
 pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils --noconfirm
 ```
-**5.D install Mate-Desktop**
+**5.D install Mate-Desktop, Kodi**
 ```
 pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rbp4 --noconfirm
 systemctl enable lightdm.service
