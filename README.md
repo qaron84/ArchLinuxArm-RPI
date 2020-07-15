@@ -73,7 +73,7 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 ```
 **5.D install Mate-Desktop**
 ```
-pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter --noconfirm
+pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rbp4 --noconfirm
 systemctl enable lightdm.service
 groupadd -r autologin
 gpasswd -a pi autologin
