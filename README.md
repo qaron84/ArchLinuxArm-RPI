@@ -91,13 +91,13 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 ```
 pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rbp4 --noconfirm
 systemctl enable lightdm.service
-groupadd -r autologin
-gpasswd -a pi autologin
 ```
 ### 6. Users & Hostname pi
 ```
 hostnamectl set-hostname pi
 useradd -d /home/pi -m -G wheel -s /bin/bash pi
+groupadd -r autologin
+gpasswd -a pi autologin
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/#autologin-user=/autologin-user=pi/' /etc/lightdm/lightdm.conf
 sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
