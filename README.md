@@ -8,7 +8,21 @@ boot partition: LABEL=ROOT into cmdline.txt `root=/dev/mmcblk0p2 -> root=/dev/sd
 ```
 root=/dev/sda2 rw rootwait rootdelay=30 console=tty1 selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 elevator=noop audit=0 ipv6.disable=1
 ```
+boot partition: /boot/config.txt:
+```
+initramfs initramfs-linux.img followkernel
+hdmi_drive=2
+dtparam=audio=on
+disable_overscan=1
+dtoverlay=gpio-ir,gpio_pin=24
+dtparam=i2c_arm=on
 
+#enable vc4
+gpu_mem=320
+dtoverlay=vc4-fkms-v3d
+max_framebuffers=2
+dtparam=i2c_arm=on
+```
 root partition: LABEL=BOOT into /etc/fstab line `/dev/mmcblk0p1 -> /dev/sda1`, /etc/fstab:
 ```
 # Static information about the filesystems.
