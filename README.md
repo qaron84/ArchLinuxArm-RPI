@@ -40,6 +40,8 @@ everytime RaspberryPi boots, given internet access, it will always sync hardware
 
 **5.A replace contents of `/etc/pacman.d/mirrorlist` with:**
 ```
+sed -i 's/#Color/Color/' /etc/pacman.conf
+sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 ## Geo-IP based mirror selection and load balancing
 Server = http://gr.mirror.archlinuxarm.org/$arch/$repo
 Server = http://de.mirror.archlinuxarm.org/$arch/$repo
