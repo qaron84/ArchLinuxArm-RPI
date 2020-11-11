@@ -112,14 +112,14 @@ reboot system and relogin
 cd /tmp
 git clone https://aur.archlinux.org/trizen.git
 cd trizen
-makepkg -si
+makepkg -si --noconfirm
 ```
 ```
 cd /tmp
 pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 ```
 ### 8. i2c interface
 ```
