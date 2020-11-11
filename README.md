@@ -91,6 +91,8 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 ```
 pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rbp4 --noconfirm
 systemctl enable lightdm.service
+#remove 'if (subject.user == "kodi")' from polkit rules file
+sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
 ```
 ### 6. Users & Hostname pi
 ```
