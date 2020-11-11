@@ -105,11 +105,18 @@ sed -i 's/#user-session=default/user-session=mate/' /etc/lightdm/lightdm.conf
 passwd pi
 ```
 reboot system and relogin
-### 7. Aur Helper - Trizen (optional)
+### 7. Aur Helper - Trizen || Yay(optional)
 ```
 cd /tmp
 git clone https://aur.archlinux.org/trizen.git
 cd trizen
+makepkg -si
+```
+```
+cd /tmp
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
 makepkg -si
 ```
 ### 8. i2c interface
