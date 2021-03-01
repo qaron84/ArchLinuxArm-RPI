@@ -89,7 +89,7 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 ```
 **5.D install Mate-Desktop, Kodi**
 ```
-pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rbp4 --noconfirm
+pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rpi --noconfirm
 systemctl enable lightdm.service
 #remove 'if (subject.user == "kodi")' from polkit rules file
 sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
@@ -136,9 +136,6 @@ echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 #list
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -la'
-alias l='ls' 					
-alias l.="ls -A | egrep '^\.'"      
 
 #fix obvious typo's
 alias cd..='cd ..'
@@ -159,46 +156,23 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 #free
 alias free="free -mt"
 
-#use all cores
-alias uac="sh ~/.bin/main/000*"
-
 #continue download
 alias wget="wget -c"
 
 #userlist
 alias userlist="cut -d: -f1 /etc/passwd"
 
-#merge new settings
-alias merge="xrdb -merge ~/.Xresources"
-
 # Aliases for software managment
 # pacman or pm
 alias pacman='sudo pacman --color auto'
-alias update='sudo pacman -Syyu'
-
-# yay as aur helper - updates everything
-alias pksyua="yay -Syu --noconfirm"
+alias update='sudo pacman -Syyu --color auto'
 
 #ps
 alias ps="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
-#grub update
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-
-#improve png
-alias fixpng="find . -type f -name "*.png" -exec convert {} -strip {} \;"
-
 #add new fonts
 alias fc='sudo fc-cache -fv'
-
-#copy/paste all content of /etc/skel over to home folder - Beware
-alias skel='cp -rf /etc/skel/* ~'
-#backup contents of /etc/skel to hidden backup folder in home/user
-alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
-
-#copy bashrc-latest over on bashrc - cb= copy bashrc
-alias cb="cp ~/.bashrc-latest ~/.bashrc && source ~/.bashrc && sudo cp /etc/skel/.bashrc-latest /etc/skel/.bashrc"
 
 #quickly kill conkies
 alias kc='killall conky'
@@ -209,23 +183,6 @@ alias hw="hwinfo --short"
 #skip integrity check
 alias yayskip='yay -S --mflags --skipinteg'
 alias trizenskip='trizen -S --skipinteg'
-
-#check vulnerabilities microcode
-alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
-
-#mounting the folder Public for exchange between host and guest on virtualbox
-alias vbm="sudo mount -t vboxsf -o rw,uid=1000,gid=1000 Public /home/$USER/Public"
-
-#shopt
-shopt -s autocd # change to named directory
-shopt -s cdspell # autocorrects cd misspellings
-shopt -s cmdhist # save multi-line commands in history as single line
-shopt -s dotglob
-shopt -s histappend # do not overwrite history
-shopt -s expand_aliases # expand aliases
-
-#Recent Installed Packages
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -100"
 
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
