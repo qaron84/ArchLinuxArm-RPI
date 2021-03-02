@@ -131,6 +131,7 @@ makepkg -si --noconfirm
 ```
 yay -Suy lirc-git --noconfirm
 sudo pacman -S kodi-rpi --noconfirm
+echo 'include kodi.config.txt' >> /boot/config.txt
 #remove 'if (subject.user == "kodi")' from polkit rules file
 sudo sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
 ```
