@@ -95,12 +95,10 @@ systemctl enable lightdm.service
 **5.D-1 install Mate-Desktop**
 ```
 pacman -S mate mate-extra --noconfirm
-systemctl enable lightdm.service
 ```
 **5.D-2 install XFCE-Desktop**
 ```
 pacman -S xfce4 xfce4-goodies --noconfirm
-systemctl enable lightdm.service
 ```
 ### 6. Users & Hostname pi
 ```
@@ -111,7 +109,7 @@ gpasswd -a pi autologin
 sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/#autologin-user=/autologin-user=pi/' /etc/lightdm/lightdm.conf
 sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
-sed -i 's/#user-session=default/user-session=mate/' /etc/lightdm/lightdm.conf
+sed -i 's/#user-session=default/user-session=xfce/' /etc/lightdm/lightdm.conf
 passwd pi
 ```
 reboot system and relogin
