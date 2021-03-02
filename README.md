@@ -87,12 +87,20 @@ pacman -Syu --noconfirm
 ```
 pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc --noconfirm
 ```
-**5.D install Mate-Desktop, Kodi**
+**5.D install LightDM**
 ```
-pacman -S mate mate-extra xorg-server xf86-video-fbturbo-git xorg-xrefresh lightdm-gtk-greeter kodi-rpi --noconfirm
+pacman -S xorg-server xf86-video-fbdev xorg-xrefresh lightdm-gtk-greeter --noconfirm
 systemctl enable lightdm.service
-#remove 'if (subject.user == "kodi")' from polkit rules file
-sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
+```
+**5.D-1 install Mate-Desktop**
+```
+pacman -S mate mate-extra --noconfirm
+systemctl enable lightdm.service
+```
+**5.D-2 install XFCE-Desktop**
+```
+pacman -S xfce4 xfce4-goodies --noconfirm
+systemctl enable lightdm.service
 ```
 ### 6. Users & Hostname pi
 ```
@@ -121,7 +129,15 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
 ```
-### 8. i2c interface
+### 8. Kodi
+```
+yay -Suy lirc-git --noconfirm
+sudo pacman -S kodi-rpi --noconfirm
+#remove 'if (subject.user == "kodi")' from polkit rules file
+sudo sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
+```
+
+### 9. i2c interface
 ```
 #enable i2c interface on kernel
 echo 'dtparam=i2c_arm=on' >> /boot/config.txt
@@ -131,7 +147,7 @@ echo 'i2c-bcm2708' >> /etc/modules-load.d/i2c.conf
 #give i2c interface non-root permissions
 echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 ```
-### 9. Bashrc
+### 10. Bashrc
 ```
 #list
 alias ls='ls --color=auto'
