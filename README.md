@@ -85,7 +85,7 @@ pacman -Syu --noconfirm
 ```
 **5.C install optional software**
 ```
-pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc neofetch --noconfirm
+pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc neofetch kodi-rpi --noconfirm
 ```
 **5.D install LightDM**
 ```
@@ -129,8 +129,6 @@ makepkg -si --noconfirm
 ```
 ### 8. Kodi
 ```
-yay -Suy lirc-git --noconfirm
-sudo pacman -S kodi-rpi --noconfirm
 echo 'include kodi.config.txt' >> /boot/config.txt
 #remove 'if (subject.user == "kodi")' from polkit rules file
 sudo sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
