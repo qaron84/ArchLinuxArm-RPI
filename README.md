@@ -56,6 +56,7 @@ everytime RaspberryPi boots, given internet access, it will always sync hardware
 ```
 sed -i 's/#Color/Color/' /etc/pacman.conf
 sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
+echo '' > /etc/pacman.d/mirrorlist
 echo 'Server = http://gr.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
 echo 'Server = http://de.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
 echo 'Server = http://de2.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
