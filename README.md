@@ -58,24 +58,24 @@ sed -i 's/#Color/Color/' /etc/pacman.conf
 sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 cat << EOF > /etc/pacman.d/mirrorlist
 ## Geo-IP based mirror selection and load balancing
-Server = http://gr.mirror.archlinuxarm.org/$arch/$repo
-Server = http://de.mirror.archlinuxarm.org/$arch/$repo
-Server = http://de2.mirror.archlinuxarm.org/$arch/$repo
-Server = http://de3.mirror.archlinuxarm.org/$arch/$repo
-Server = http://de4.mirror.archlinuxarm.org/$arch/$repo
-Server = http://de5.mirror.archlinuxarm.org/$arch/$repo
-Server = http://nl.mirror.archlinuxarm.org/$arch/$repo
-Server = http://pt.mirror.archlinuxarm.org/$arch/$repo
-Server = http://dk.mirror.archlinuxarm.org/$arch/$repo
-Server = http://eu.mirror.archlinuxarm.org/$arch/$repo
-Server = http://au.mirror.archlinuxarm.org/$arch/$repo
-Server = http://br2.mirror.archlinuxarm.org/$arch/$repo
-Server = http://hu.mirror.archlinuxarm.org/$arch/$repo
-Server = http://sg.mirror.archlinuxarm.org/$arch/$repo
-Server = http://za.mirror.archlinuxarm.org/$arch/$repo
-Server = http://tw.mirror.archlinuxarm.org/$arch/$repo
-Server = http://il.us.mirror.archlinuxarm.org/$arch/$repo
-Server = http://ca.us.mirror.archlinuxarm.org/$arch/$repo
+'Server = http://gr.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://de.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://de2.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://de3.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://de4.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://de5.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://nl.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://pt.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://dk.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://eu.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://au.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://br2.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://hu.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://sg.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://za.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://tw.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://il.us.mirror.archlinuxarm.org/$arch/$repo'
+'Server = http://ca.us.mirror.archlinuxarm.org/$arch/$repo'
 EOF
 ```
 
