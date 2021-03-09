@@ -131,7 +131,7 @@ makepkg -si --noconfirm
 ```
 echo 'include kodi.config.txt' >> /boot/config.txt
 #remove 'if (subject.user == "kodi")' from polkit rules file
-sudo sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
+sed -i '14d;2d' /usr/share/polkit-1/rules.d/10-kodi.rules
 ```
 
 ### 9. i2c interface
@@ -143,6 +143,7 @@ echo 'i2c-dev' >> /etc/modules-load.d/i2c.conf
 echo 'i2c-bcm2708' >> /etc/modules-load.d/i2c.conf
 #give i2c interface non-root permissions
 echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
+yay -S wd719x-firmware --noconfirm
 ```
 ### 10. Bashrc
 ```
