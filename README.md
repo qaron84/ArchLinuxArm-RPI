@@ -92,7 +92,7 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 pacman -S xorg-server xf86-video-fbdev xorg-xrefresh lightdm-gtk-greeter --noconfirm
 systemctl enable lightdm.service
 
-cat > /etc/X11/xorg.conf.d/999-fbdev.conf <<- "EOF"
+cat > /etc/X11/xorg.conf.d/99-fbdev.conf <<- "EOF"
 # This is a minimal sample config file, which can be copied to
 # /etc/X11/xorg.conf in order to make the Xorg server pick up
 # and load xf86-video-fbturbo driver installed in the system.
