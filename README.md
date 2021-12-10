@@ -91,6 +91,25 @@ pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-l
 ```
 pacman -S xorg-server xf86-video-fbdev xorg-xrefresh lightdm-gtk-greeter --noconfirm
 systemctl enable lightdm.service
+
+cat > /etc/X11/xorg.conf.d/999-fbdev.conf <<- "EOF"
+# This is a minimal sample config file, which can be copied to
+# /etc/X11/xorg.conf in order to make the Xorg server pick up
+# and load xf86-video-fbturbo driver installed in the system.
+#
+# When troubleshooting, check /var/log/Xorg.0.log for the debugging
+# output and error messages.
+#
+# Run "man fbturbo" to get additional information about the extra
+# configuration options for tuning the driver.
+
+Section "Device"
+  Identifier      "Allwinner A10/A13 FBDEV"
+  Driver          "fbdev"
+  Option          "fbdev" "/dev/fb0"
+  Option          "SwapbuffersWait" "true"
+EndSection
+EOF
 ```
 **5.D-1 install Mate-Desktop**
 ```
