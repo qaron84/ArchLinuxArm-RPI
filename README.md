@@ -1,4 +1,4 @@
-o## ArchLinuxArm for your RPI
+## ArchLinuxArm for your RPI
 
 ### 1. download the latest Arch Linux Arm image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
 
