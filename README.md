@@ -162,6 +162,8 @@ echo 'i2c-dev' >> /etc/modules-load.d/i2c.conf
 echo 'i2c-bcm2708' >> /etc/modules-load.d/i2c.conf
 #give i2c interface non-root permissions
 echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
+#export device tree from sd
+dtc -I fs -O dtb -o base.dtb /proc/device-tree
 yay -S wd719x-firmware --noconfirm
 ```
 ### 10. Bashrc
