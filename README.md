@@ -55,7 +55,6 @@ everytime RaspberryPi boots, given internet access, it will always sync hardware
 **5.A replace contents of `/etc/pacman.d/mirrorlist` with:**
 ```
 sed -i 's/#Color/Color/' /etc/pacman.conf
-sed -i 's/#TotalDownload/TotalDownload/' /etc/pacman.conf
 echo '#Enter your order here....' > /etc/pacman.d/mirrorlist
 echo 'Server = http://gr.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
 echo 'Server = http://de.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
@@ -85,7 +84,7 @@ pacman -Syu --noconfirm
 ```
 **5.C install optional software**
 ```
-pacman -S --needed nfs-utils htop openssh autofs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc neofetch kodi-rpi --noconfirm
+pacman -S --needed nfs-utils htop openssh btrfs-progs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc neofetch kodi-rpi --noconfirm
 ```
 **5.D install LightDM**
 ```
