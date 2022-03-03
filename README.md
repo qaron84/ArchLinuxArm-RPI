@@ -1,7 +1,15 @@
 ## ArchLinuxArm for your RPI
 
 ### 1. download the latest Arch Linux Arm image for your raspberrypi and flash it with the balena-etcher on your usb external hdd/ssd
+**.1.a if you prefer to boot via u-boot:
+```
+1. flash archlinux arm on an sd card and boot.
+2. flash the usb with arch linux you prefer to boot
+3. Add pcie_brcmstb into MODULES in /etc/mkinitcpio.conf - (both sd & usb)
+4. Rebuild initrd with mkinitcpio -P - (both sd & usb)
+OR create an image from sd card and you flash this image to usb...!!!! [easy way..]
 
+```
 ### 2. mount the drive into your computer and add Label tags for Boot and Root partitions
 
 boot partition: LABEL=ROOT into cmdline.txt `root=/dev/mmcblk0p2 -> root=/dev/sda2`, /boot/cmdline.txt:
