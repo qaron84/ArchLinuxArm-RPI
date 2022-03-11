@@ -227,7 +227,7 @@ alias yayskip='yay -S --mflags --skipinteg'
 alias trizenskip='trizen -S --skipinteg'
 
 #Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias cleanup='yay -Scc --noconfirm && sudo pacman -Rns $(pacman -Qtdq) --noconfirm && paccache -rk1'
 
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
