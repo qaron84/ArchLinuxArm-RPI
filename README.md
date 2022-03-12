@@ -133,7 +133,7 @@ hostnamectl set-hostname pi
 useradd -d /home/pi -m -G wheel -s /bin/bash pi
 groupadd -r autologin
 gpasswd -a pi autologin
-sed -i 's/# %wheel ALL=(ALL) ALL/ %wheel ALL=(ALL) ALL/' /etc/sudoers
+sed -i 's*# %wheel ALL=(ALL:ALL) NOPASSWD: ALL*%pi ALL=(ALL) NOPASSWORD:ALL*' /etc/sudoers
 sed -i 's/#autologin-user=/autologin-user=pi/' /etc/lightdm/lightdm.conf
 sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
 sed -i 's/#user-session=default/user-session=xfce/' /etc/lightdm/lightdm.conf
