@@ -57,12 +57,13 @@ Password for root: `root`.
 ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 systemctl enable systemd-timesyncd
 systemctl start systemd-timesyncd
+echo 'EDITOR=nano' > /etc/environment
+sed -i 's/#Color/Color/' /etc/pacman.conf
 ```
 everytime RaspberryPi boots, given internet access, it will always sync hardware clock...
 
 **5.A replace contents of `/etc/pacman.d/mirrorlist` with:**
 ```
-sed -i 's/#Color/Color/' /etc/pacman.conf
 echo '#Enter your order here....' > /etc/pacman.d/mirrorlist
 echo 'Server = http://gr.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
 echo 'Server = http://de.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
