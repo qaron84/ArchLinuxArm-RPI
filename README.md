@@ -127,6 +127,10 @@ pacman -S mate mate-extra --noconfirm
 ```
 pacman -S xfce4 xfce4-goodies --noconfirm
 ```
+**5.D-3 install Pantheon-Desktop**
+```
+pacman -S pantheon --noconfirm
+```
 ### 6. Users & Hostname pi
 ```
 hostnamectl set-hostname pi
@@ -136,7 +140,7 @@ gpasswd -a pi autologin
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%pi ALL=(ALL) NOPASSWORD: ALL/' /etc/sudoers
 sed -i 's/#autologin-user=/autologin-user=pi/' /etc/lightdm/lightdm.conf
 sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
-sed -i 's/#user-session=default/user-session=xfce/' /etc/lightdm/lightdm.conf
+sed -i 's/#user-session=default/user-session=pantheon/' /etc/lightdm/lightdm.conf
 passwd pi
 ```
 reboot system and relogin
