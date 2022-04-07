@@ -37,7 +37,7 @@ echo Arch >> /etc/hostname
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	Arch.localdomain	Arch" >> /etc/hosts
-pacman -S --needed grub grub-btrfs efibootmgr base-devel network-manager-applet wpa_supplicant dialog os-prober mtools dosfstools reflector git
+pacman -S --needed grub grub-btrfs efibootmgr gdm base-devel network-manager-applet wpa_supplicant dialog os-prober mtools dosfstools reflector git
 sed -i 's*MODULES=()*MODULES=(btrfs)*' /etc/mkinitcpio.conf
 mkinitcpio -p linux-lts
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
@@ -46,4 +46,6 @@ groupadd sudo
 useradd -mG wheel,sudo mokos
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 systemctl enable NetworkManager
+systemctl enable sshd
+systemctl enable gdm
 echo EDITOR=nano >> /etc/environment
