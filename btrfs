@@ -10,11 +10,12 @@ mount /dev/sda3 /mnt
 btrfs sub cr /mnt/@
 btrfs sub cr /mnt/@log
 btrfs sub cr /mnt/@pkg
+btrfs sub cr /mnt/@snapshots
 
 mkdir /mnt/home
 mount /dev/mmcblk0p1 /mnt/home
 btrfs sub cr /mnt/home/@home
-btrfs sub cr /mnt/home/@snapshots
+
 umount /mnt/home
 umount /mnt
 
@@ -25,7 +26,7 @@ mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@log /dev/sda3 /mnt/var/
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@pkg /dev/sda3 /mnt/var/cache/pacman/pkg/
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@home /dev/mmcblk0p1 /mnt/home/
 mkdir /mnt/home/snapshots
-mount -o noatime,space_cache=v2,ssd,compress=lzo,subvolid=5,subvol=@snapshots /dev/sda3 /mnt/home/snapshots
+mount -o noatime,space_cache=v2,ssd,compress=lzo,subvolid=5,subvol=@snapshots /dev/sda3 /mnt/var/snapshots
 mount /dev/sda1 /mnt/boot/efi/
 
 pacstrap /mnt base linux linux-firmware nano intel-ucode btrfs-progs linux-headers linux-lts linux-lts-headers networkmanager
