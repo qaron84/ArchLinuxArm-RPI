@@ -20,10 +20,10 @@ umount /mnt/home
 umount /mnt
 
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@ /dev/sda3 /mnt
-mkdir -p /mnt/{boot/efi,home,var/snapshots,var/log,var/cache/pacman/pkg}
+mkdir -p /mnt/{boot/efi,home,.snapshots,var/log,var/cache/pacman/pkg}
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@log /dev/sda3 /mnt/var/log
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@pkg /dev/sda3 /mnt/var/cache/pacman/pkg/
-mount -o noatime,space_cache=v2,ssd,compress=lzo,subvolid=5,subvol=@snapshots /dev/sda3 /mnt/var/snapshots/
+mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@snapshots /dev/sda3 /mnt/var/snapshots/
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@home /dev/mmcblk0p1 /mnt/home/
 mount /dev/sda1 /mnt/boot/efi/
 
