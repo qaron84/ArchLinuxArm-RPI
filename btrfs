@@ -19,18 +19,31 @@ btrfs sub cr /mnt/home/@home
 umount /mnt/home
 umount /mnt
 
-
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@ /dev/sda3 /mnt
-mkdir -p /mnt/{boot/efi,home/snapshots,var/log,var/cache/pacman/pkg}
+mkdir -p /mnt/{boot/efi,home,var/snapshots,var/log,var/cache/pacman/pkg}
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@log /dev/sda3 /mnt/var/log
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@pkg /dev/sda3 /mnt/var/cache/pacman/pkg/
+mount -o noatime,space_cache=v2,ssd,compress=lzo,subvolid=5,subvol=@snapshots /dev/sda3 /mnt/var/snapshots/
 mount -o noatime,space_cache=v2,ssd,compress=lzo,subvol=@home /dev/mmcblk0p1 /mnt/home/
-mkdir /mnt/home/snapshots
-mount -o noatime,space_cache=v2,ssd,compress=lzo,subvolid=5,subvol=@snapshots /dev/sda3 /mnt/var/snapshots
 mount /dev/sda1 /mnt/boot/efi/
 
-pacstrap /mnt base linux linux-firmware nano intel-ucode btrfs-progs linux-headers linux-lts linux-lts-headers networkmanager
+pacstrap /mnt base linux-firmware nano intel-ucode btrfs-progs linux-lts linux-lts-headers networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 hwclock --systohc
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+echo Arch >> /etc/hostname
+echo "127.0.0.1	localhost" >> /etc/hosts
+echo "::1		localhost" >> /etc/hosts
+echo "127.0.1.1	Arch.localdomain	Arch" >> /etc/hosts
+pacman -S --needed grub grub-btrfs efibootmgr base-devel network-manager-applet wpa_supplicant dialog os-prober mtools dosfstools reflector git
+sed -i 's*MODULES=()*MODULES=(btrfs)*' /etc/mkinitcpio.conf
+mkinitcpio -p linux-lts
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
+grub-mkconfig -o /boot/grub/grub.cfg
+groupadd sudo
+useradd -mG wheel,sudo mokos
+sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+systemctl enable NetworkManager
+echo EDITOR=nano >> /etc/environment
