@@ -180,6 +180,8 @@ dtc -I fs -O dtb -o base.dtb /proc/device-tree
 yay -S wd719x-firmware --noconfirm
 yay -S kodi-addon-inputstream-adaptive-any --noconfirm
 yay -S nano-syntax-highlighting --noconfirm
+echo "include /usr/share/nano-syntax-highlighting/*.nanorc" >> /etc/nanorc
+echo "include /usr/share/nano-syntax-highlighting/*.nanorc" >> ~/.nanorc
 ```
 ### 10. Bashrc
 ```
