@@ -178,6 +178,7 @@ echo 'KERNEL=="i2c-[0-9]*", GROUP="wheel"' >> /etc/udev/rules.d/i2c.rules
 #export device tree from sd
 dtc -I fs -O dtb -o base.dtb /proc/device-tree
 yay -S wd719x-firmware --noconfirm
+yay -S kodi-addon-inputstream-adaptive-any --noconfirm
 ```
 ### 10. Bashrc
 ```
