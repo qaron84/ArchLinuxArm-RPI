@@ -163,6 +163,7 @@ makepkg -si --noconfirm
 ```
 ### 8. Kodi
 ```
+yay -S kodi-addon-inputstream-adaptive-any --noconfirm
 pacman -S kodi-rpi --noconfirm
 echo 'include kodi.config.txt' >> /boot/config.txt
 #remove 'if (subject.user == "kodi")' from polkit rules file
