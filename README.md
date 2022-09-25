@@ -133,15 +133,15 @@ pacman -S pantheon --noconfirm
 ```
 ### 6. Users & Hostname pi
 ```
-hostnamectl set-hostname pi
-useradd -d /home/pi -m -G wheel -s /bin/bash pi
+hostnamectl set-hostname linux
+useradd -d /home/linux -m -G wheel -s /bin/bash linux
 groupadd -r autologin
-gpasswd -a pi autologin
-sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%pi ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
-sed -i 's/#autologin-user=/autologin-user=pi/' /etc/lightdm/lightdm.conf
+gpasswd -a linux autologin
+sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%linux ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+sed -i 's/#autologin-user=/autologin-user=linux/' /etc/lightdm/lightdm.conf
 sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
-sed -i 's/#user-session=default/user-session=pantheon/' /etc/lightdm/lightdm.conf
-passwd pi
+sed -i 's/#user-session=default/user-session=kodi/' /etc/lightdm/lightdm.conf
+passwd linux
 ```
 reboot system and relogin
 ### 7. Aur Helper - Trizen || Yay(optional)
