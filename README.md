@@ -143,7 +143,10 @@ sed -i 's/#autologin-user-timeout=0/autologin-user-timeout=0/' /etc/lightdm/ligh
 sed -i 's/#user-session=default/user-session=kodi/' /etc/lightdm/lightdm.conf
 passwd linux
 ```
-reboot system and relogin
+reboot system and relogin to new user!
+```
+userdel -r alarm
+```
 ### 7. Aur Helper - Trizen || Yay(optional)
 ```
 cd /tmp
