@@ -64,25 +64,8 @@ everytime RaspberryPi boots, given internet access, it will always sync hardware
 
 **5.A replace contents of `/etc/pacman.d/mirrorlist` with:**
 ```
-echo '#Enter your order here....' > /etc/pacman.d/mirrorlist
-echo 'Server = http://gr.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://de.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://de2.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://de3.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://de4.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://de5.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://nl.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://pt.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://dk.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://eu.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://au.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://br2.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://hu.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://sg.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://za.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://tw.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://il.us.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
-echo 'Server = http://ca.us.mirror.archlinuxarm.org/$arch/$repo' >> /etc/pacman.d/mirrorlist
+echo '#Arch Linux RollbackMachine....' > /etc/pacman.d/mirrorlist
+echo 'Server = http://tardis.tiny-vps.com/aarm/repos/2020/01/01/$arch/$repo' >> /etc/pacman.d/mirrorlist
 ```
 
 **5.B update the system**
