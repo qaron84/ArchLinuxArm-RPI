@@ -76,7 +76,7 @@ pacman -Syu --noconfirm
 ```
 **5.C install optional software**
 ```
-pacman -Suy --needed nfs-utils htop openssh btrfs-progs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant wireless_tools iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc neofetch pacman-contrib --noconfirm
+pacman -Suy --needed nfs-utils htop openssh btrfs-progs alsa-utils alsa-firmware alsa-lib alsa-plugins git zsh wget base-devel diffutils libnewt dialog wpa_supplicant iw crda lshw sudo i2c-tools lm_sensors uboot-tools samba v4l-utils cronie x11vnc neofetch pacman-contrib --noconfirm
 ```
 **5.D install LightDM**
 ```
