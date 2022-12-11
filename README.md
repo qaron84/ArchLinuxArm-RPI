@@ -10,6 +10,26 @@
 OR create an image from sd card and you flash this image to usb...!!!! [easy way..]
 
 ```
+**.1.b static ip with wpa_supplicant:
+```
+wpa_passphrase MYSSID passphrase > /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+cat <<EOF | tee -a /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+# Giving configuration update rights to wpa_cli
+ctrl_interface=/run/wpa_supplicant
+ctrl_interface_group=wheel
+update_config=1
+EOF
+cat <<EOF | tee -a /etc/systemd/network/wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DNSSEC=no
+Address=192.168.1.150/24
+Gateway=192.168.1.1
+DNS=192.168.1.1
+EOF
+```
 ### 2. mount the drive into your computer and add Label tags for Boot and Root partitions
 
 boot partition: LABEL=ROOT into cmdline.txt `root=/dev/mmcblk0p2 -> root=/dev/sda2`, /boot/cmdline.txt:
